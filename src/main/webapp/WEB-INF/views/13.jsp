@@ -67,7 +67,7 @@
 		<!-- <퍼센트for(Uservo userVo : userList) { %>   향상된 포문  -->
 		<!-- <td><퍼센트=userVo.getNo() %></td>  -->
 		<tbody>
-			<!--				여러개짜리				    하나짜리 -->
+			<!--				여러개짜리	(어트리뷰트)	    하나짜리 -->
 			<c:forEach items="${requestScope.userList}" var="userVo">
 		
 				<tr>
@@ -76,6 +76,38 @@
 					<td>${userVo.email}</td>
 					<td>${userVo.password}</td>
 					<td>${userVo.gender}</td>
+				</tr>
+			
+			</c:forEach>
+		</tbody>
+	</table>
+	<br>
+	
+	<br>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>이름</th>
+				<th>이메일</th>
+				<th>패스워드</th>
+				<th>성별</th>
+				<th>state.index</th>
+				<th>state.count</th>
+			</tr>	
+		</thead>
+		<tbody>
+			<!--				여러개짜리	(어트리뷰트)	    하나짜리       i 몇번부터   몇번까지만  뛰어넘어서 보여줘라  i가 몇인지 알려주는 -->
+			<c:forEach items="${requestScope.userList}" var="userVo" begin="0" end="10" step="1" varStatus="state">
+							<!-- for(int i=0; i<=6; i=i+2)  -->
+				<tr>
+					<td>${userVo.no}</td>
+					<td>${userVo.name}</td>
+					<td>${userVo.email}</td>
+					<td>${userVo.password}</td>
+					<td>${userVo.gender}</td>
+					<td>${state.index}</td>		<!-- 방번호  -->
+					<td>${state.count}</td>		<!-- 갯수  -->
 				</tr>
 			
 			
